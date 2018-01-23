@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201801231348423_PopulateGenresTable.Designer.cs">
       <DependentUpon>201801231348423_PopulateGenresTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801231504289_AddForeghienKeyForNaigationProperti.cs" />
+    <Compile Include="Migrations\201801231504289_AddForeghienKeyForNaigationProperti.Designer.cs">
+      <DependentUpon>201801231504289_AddForeghienKeyForNaigationProperti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801231348423_PopulateGenresTable.resx">
       <DependentUpon>201801231348423_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801231504289_AddForeghienKeyForNaigationProperti.resx">
+      <DependentUpon>201801231504289_AddForeghienKeyForNaigationProperti.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

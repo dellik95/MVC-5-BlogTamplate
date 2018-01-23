@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MVC_5_BlogTamplate.Models;
 using MVC_5_BlogTamplate.ViewModel;
 
@@ -14,6 +16,7 @@ namespace MVC_5_BlogTamplate.Controllers
             _applicationDbContext = new ApplicationDbContext();
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new GigsFormViewModel
@@ -22,6 +25,24 @@ namespace MVC_5_BlogTamplate.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(GigsFormViewModel viewModel)
+        {
+            var gig = new Gig
+            {
+                ArtistId = User.Identity.GetUserId(),
+                DateTime = DateTime.Parse($"{viewModel.Date} {viewModel.Time}"),
+                GenreId = viewModel.Genre,
+                Vanue = viewModel.Vanue
+            };
+
+            _applicationDbContext.Gigs.Add(gig);
+            _applicationDbContext.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

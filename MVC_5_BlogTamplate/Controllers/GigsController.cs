@@ -31,10 +31,15 @@ namespace MVC_5_BlogTamplate.Controllers
         [HttpPost]
         public ActionResult Create(GigsFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _applicationDbContext.Genres.ToList();
+                return View("Create", viewModel);
+            }
             var gig = new Gig
             {
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
                 Vanue = viewModel.Vanue
             };

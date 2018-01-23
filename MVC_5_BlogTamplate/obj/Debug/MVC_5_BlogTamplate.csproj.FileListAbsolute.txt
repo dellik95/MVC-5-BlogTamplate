@@ -101,3 +101,4 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csproj.GenerateResource.Cache
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.CreateGigTable.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.OverrideConventionForGigsAndGenres.resources
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.PopulateGenresTable.resources

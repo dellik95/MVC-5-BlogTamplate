@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 
-namespace MVC_5_BlogTamplate.Models
+namespace MVC_5_BlogTamplate.ViewModel
 {
     public class IndexViewModel
     {

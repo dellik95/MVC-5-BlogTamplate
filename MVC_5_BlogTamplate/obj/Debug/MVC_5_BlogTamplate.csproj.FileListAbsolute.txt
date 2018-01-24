@@ -104,4 +104,3 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddForeghienKeyForNaigationProperti.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddNamePropForUser.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddNamePropForUser1.resources
-C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csprojResolveAssemblyReference.cache

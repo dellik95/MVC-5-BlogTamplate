@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MVC_5_BlogTamplate.Models;
 
@@ -22,6 +20,7 @@ namespace MVC_5_BlogTamplate.Controllers
         {
             var upcomingGigs = _applicationDbContext.Gigs
                 .Include(x => x.Artist)
+                .Include(g=>g.Genre)
                 .Where(g => g.DateTime < DateTime.Now).ToList();
 
             return View(upcomingGigs);

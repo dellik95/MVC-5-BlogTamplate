@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MVC_5_BlogTamplate.Models;
+using MVC_5_BlogTamplate.ViewModel;
 
 namespace MVC_5_BlogTamplate.Controllers
 {

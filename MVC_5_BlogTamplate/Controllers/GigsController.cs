@@ -7,7 +7,6 @@ using MVC_5_BlogTamplate.ViewModel;
 
 namespace MVC_5_BlogTamplate.Controllers
 {
-    [ValidateAntiForgeryToken]
     public class GigsController : Controller
     {
         private readonly ApplicationDbContext _applicationDbContext;

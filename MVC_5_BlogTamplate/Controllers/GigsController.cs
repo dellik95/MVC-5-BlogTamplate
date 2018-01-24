@@ -7,6 +7,7 @@ using MVC_5_BlogTamplate.ViewModel;
 
 namespace MVC_5_BlogTamplate.Controllers
 {
+    [ValidateAntiForgeryToken]
     public class GigsController : Controller
     {
         private readonly ApplicationDbContext _applicationDbContext;
@@ -29,6 +30,7 @@ namespace MVC_5_BlogTamplate.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(GigsFormViewModel viewModel)
         {
             if (!ModelState.IsValid)

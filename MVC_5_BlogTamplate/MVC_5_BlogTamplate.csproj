@@ -200,9 +200,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\AttendencesController.cs" />
+    <Compile Include="Controllers\api\FollowingController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Dto\AttendenceDto.cs" />
+    <Compile Include="Dto\FollowingDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,7 +238,17 @@
     <Compile Include="Migrations\201801240959375_AddNamePropForUser1.Designer.cs">
       <DependentUpon>201801240959375_AddNamePropForUser1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801241130566_CreateAttendenceTable.cs" />
+    <Compile Include="Migrations\201801241130566_CreateAttendenceTable.Designer.cs">
+      <DependentUpon>201801241130566_CreateAttendenceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801241318204_AddFollowingsTable.cs" />
+    <Compile Include="Migrations\201801241318204_AddFollowingsTable.Designer.cs">
+      <DependentUpon>201801241318204_AddFollowingsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="ViewModel\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
@@ -243,6 +257,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="ViewModel\GigsViewModel.cs" />
     <Compile Include="ViewModel\IndexViewModel.cs" />
     <Compile Include="ViewModel\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModel\SetPasswordViewModel.cs" />
@@ -269,6 +284,8 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -277,7 +294,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\HomeJs\followjs.js" />
+    <Content Include="Scripts\HomeJs\goingjs.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -288,6 +309,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -301,7 +324,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Gigs.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -350,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801240959375_AddNamePropForUser1.resx">
       <DependentUpon>201801240959375_AddNamePropForUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801241130566_CreateAttendenceTable.resx">
+      <DependentUpon>201801241130566_CreateAttendenceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801241318204_AddFollowingsTable.resx">
+      <DependentUpon>201801241318204_AddFollowingsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

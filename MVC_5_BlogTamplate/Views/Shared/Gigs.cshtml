@@ -1,0 +1,42 @@
+﻿@model MVC_5_BlogTamplate.ViewModel.GigsViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>@Model.Heading</h1>
+<ul class="gigs vertical-offset4">
+    @foreach (var gig in Model.Gigs)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @gig.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @gig.DateTime.ToString("d ")
+
+                </div>
+            </div>
+            <div class="details">
+                <span class="artist">
+                    @gig.Artist.Name
+                    @if (Model.ShowAction)
+                    {
+                        <button class="btn btn-link btn-sm js-toogle-follow" data-user-id="@gig.ArtistId">Following?</button>
+                    }
+                </span>
+                <span class="genre">
+                    @gig.Genre.Name
+                </span>
+                @if (Model.ShowAction)
+                {
+                    <button class="btn btn-default btn-sm pull-left js-toggle-attendence" data-gigId="@gig.Id">Going?</button>
+                }
+            </div>
+
+        </li>
+    }
+</ul>
+
+@section scripts
+{@Scripts.Render("~/bundles/homeindex")}

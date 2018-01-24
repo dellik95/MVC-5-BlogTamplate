@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using MVC_5_BlogTamplate.Models;
+using MVC_5_BlogTamplate.ViewModel;
 
 namespace MVC_5_BlogTamplate.Controllers
 {
@@ -20,10 +21,20 @@ namespace MVC_5_BlogTamplate.Controllers
         {
             var upcomingGigs = _applicationDbContext.Gigs
                 .Include(x => x.Artist)
-                .Include(g=>g.Genre)
+                .Include(g => g.Genre)
                 .Where(g => g.DateTime < DateTime.Now).ToList();
 
-            return View(upcomingGigs);
+
+            var viewModel = new GigsViewModel()
+            {
+                Gigs = upcomingGigs,
+                ShowAction = User.Identity.IsAuthenticated,
+                Heading = "All Gigs"
+
+            };
+
+
+            return View("Gigs",viewModel);
         }
 
         public ActionResult About()

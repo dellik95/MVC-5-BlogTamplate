@@ -8,12 +8,12 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
+
 
 .dl-horizontal dt { white-space: normal; }
 
@@ -29,6 +29,12 @@ span.field-validation-error {
 }
 
 input.input-validation-error { border: #ff4342 solid 1px; }
+
+.vertical-offset1{ margin-top: 2px; }
+.vertical-offset2{ margin-top: 5px; }
+.vertical-offset3{ margin-top: 10px; }
+.vertical-offset4{ margin-top: 40px; }
+.vertical-offset5{ margin-top: 80px; }
 
 .navbar-inverse {
     background-color: #ff4342;
@@ -91,8 +97,8 @@ h6,
 .btn {
     -ms-border-radius: 9px;
     border-radius: 9px;
-    font-size: 17px;
-    padding: 7px 20px;
+    /*font-size: 17px; 
+    padding: 7px 20px;*/
 }
 
 .gigs { list-style: none; }
@@ -107,7 +113,7 @@ h6,
     background: red;
     color: white;
     text-align: center;
-    width: 7%;
+    width: 60px;
     border-radius: 8px;
 }
 
@@ -125,13 +131,15 @@ h6,
     padding: 6px 12px;
 }
 
+
 .gigs > li .details {
     position: absolute;
     top: 0;
     left: 70px;
 }
 
-.gigs > li .details .artist { font-weight: bold;
+.gigs > li .details .artist { 
+    font-weight: bold;
     display: block;
 }
 

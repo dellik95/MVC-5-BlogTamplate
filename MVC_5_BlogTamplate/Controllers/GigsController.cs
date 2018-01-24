@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -49,6 +50,27 @@ namespace MVC_5_BlogTamplate.Controllers
             _applicationDbContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Attempting()
+        {
+            var currentUser = User.Identity.GetUserId();
+
+            var gigs = _applicationDbContext.Attendances
+                .Where(a => a.AttendeeId == currentUser)
+                .Select(a => a.Gig)
+                .Include(x=>x.Artist)
+                .Include(g=>g.Genre)
+                .ToList();
+
+
+            var gigsViewModel = new GigsViewModel()
+            {
+              Gigs = gigs,
+                ShowAction = User.Identity.IsAuthenticated,
+                Heading = "Gigs I`m Attempting"
+            };
+            return View("Gigs",gigsViewModel);
         }
     }
 }

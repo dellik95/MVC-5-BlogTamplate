@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -22,10 +21,32 @@ namespace MVC_5_BlogTamplate.Controllers
         {
             var viewModel = new GigsFormViewModel
             {
-                Genres = _applicationDbContext.Genres.ToList()
+                Genres = _applicationDbContext.Genres.ToList(),
+                Heading = "Create new Gig"
             };
 
-            return View(viewModel);
+            return View("GigForm",viewModel);
+        }
+
+
+        [Authorize]
+        public ActionResult Edit(int id)
+        {
+            var currentUserId = User.Identity.GetUserId();
+
+            var gig = _applicationDbContext.Gigs.Single(g => g.ArtistId == currentUserId && g.Id == id);
+            var viewModel = new GigsFormViewModel
+            {
+                Heading = "Edit a Gig",
+                Id = gig.Id,
+                Genres = _applicationDbContext.Genres.ToList(),
+                Date = gig.DateTime.ToString("d MMM yyyy"),
+                Time = gig.DateTime.ToString("HH:mm"),
+                Genre =gig.GenreId,
+                Vanue = gig.Vanue
+            };
+
+            return View("GigForm",viewModel);
         }
 
         [Authorize]
@@ -36,8 +57,9 @@ namespace MVC_5_BlogTamplate.Controllers
             if (!ModelState.IsValid)
             {
                 viewModel.Genres = _applicationDbContext.Genres.ToList();
-                return View("Create", viewModel);
+                return View("GigForm", viewModel);
             }
+
             var gig = new Gig
             {
                 ArtistId = User.Identity.GetUserId(),
@@ -49,7 +71,33 @@ namespace MVC_5_BlogTamplate.Controllers
             _applicationDbContext.Gigs.Add(gig);
             _applicationDbContext.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Mine", "Gigs");
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(GigsFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _applicationDbContext.Genres.ToList();
+                return View("GigForm", viewModel);
+            }
+
+            var currentUserId = User.Identity.GetUserId();
+
+            var gig = _applicationDbContext.Gigs.Single(g => g.Id == viewModel.Id && g.ArtistId == currentUserId);
+
+
+            gig.Vanue = viewModel.Vanue;
+            gig.DateTime = viewModel.GetDateTime();
+            gig.GenreId = viewModel.Genre;
+
+            _applicationDbContext.SaveChanges();
+
+            return RedirectToAction("Mine", "Gigs");
         }
 
         public ActionResult Attempting()
@@ -59,18 +107,44 @@ namespace MVC_5_BlogTamplate.Controllers
             var gigs = _applicationDbContext.Attendances
                 .Where(a => a.AttendeeId == currentUser)
                 .Select(a => a.Gig)
-                .Include(x=>x.Artist)
-                .Include(g=>g.Genre)
+                .Include(x => x.Artist)
+                .Include(g => g.Genre)
                 .ToList();
 
 
-            var gigsViewModel = new GigsViewModel()
+            var gigsViewModel = new GigsViewModel
             {
-              Gigs = gigs,
+                Gigs = gigs,
                 ShowAction = User.Identity.IsAuthenticated,
                 Heading = "Gigs I`m Attempting"
             };
-            return View("Gigs",gigsViewModel);
+            return View("Gigs", gigsViewModel);
+        }
+
+        [Authorize]
+        public ActionResult Following()
+        {
+            var currentUserId = User.Identity.GetUserId();
+
+            var followQuery = _applicationDbContext.Followings
+                .Where(f => f.FollowerId == currentUserId)
+                .Include(f=>f.Followee)
+                .ToList();
+
+            return View(followQuery);
+        }
+
+        [Authorize]
+        public ActionResult Mine()
+        {
+            var currentUserId = User.Identity.GetUserId();
+
+            var mineGigs = _applicationDbContext.Gigs
+                .Where(g => g.ArtistId == currentUserId)
+                .Include(i => i.Genre)
+                .ToList();
+
+            return View("Mine",mineGigs);
         }
     }
 }

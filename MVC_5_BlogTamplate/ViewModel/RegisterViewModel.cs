@@ -19,9 +19,7 @@ namespace MVC_5_BlogTamplate.ViewModel
         [Display(Name = "Подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
-       
-        [Required]
-        [StringLength(100)]
-        public string Name { get; set; }
+
+        [Required] [StringLength(100)] public string Name { get; set; }
     }
 }

@@ -268,13 +268,11 @@
     <Compile Include="ViewModel\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModel\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModel\ForgotViewModel.cs" />
-    <Compile Include="ViewModel\FutureDate.cs" />
     <Compile Include="ViewModel\GigsFormViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModel\SendCodeViewModel.cs" />
-    <Compile Include="ViewModel\ValidTime.cs" />
     <Compile Include="ViewModel\VerifyCodeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -345,7 +343,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Gigs\Create.cshtml" />
+    <Content Include="Views\Gigs\GigForm.cshtml" />
+    <Content Include="Views\Gigs\Following.cshtml" />
+    <Content Include="Views\Gigs\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

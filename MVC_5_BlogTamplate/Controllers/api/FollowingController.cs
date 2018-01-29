@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using MVC_5_BlogTamplate.Dto;
@@ -26,12 +22,10 @@ namespace MVC_5_BlogTamplate.Controllers.api
         {
             var currentUser = User.Identity.GetUserId();
 
-            if (_applicationDbContext.Followings.Any(f => f.FolloweeId == currentUser && f.FolloweeId == dto.FolloweeId))
-            {
-                return BadRequest();
-            }
+            if (_applicationDbContext.Followings.Any(f => f.FolloweeId == currentUser && f.FolloweeId == dto.FolloweeId)
+            ) return BadRequest();
 
-            var following = new Following()
+            var following = new Following
             {
                 FolloweeId = dto.FolloweeId,
                 FollowerId = currentUser
@@ -42,6 +36,5 @@ namespace MVC_5_BlogTamplate.Controllers.api
 
             return Ok();
         }
-
     }
 }

@@ -14,7 +14,6 @@ namespace MVC_5_BlogTamplate.ViewModel
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        [Display(Name = "Запомнить меня")]
-        public bool RememberMe { get; set; }
+        [Display(Name = "Запомнить меня")] public bool RememberMe { get; set; }
     }
 }

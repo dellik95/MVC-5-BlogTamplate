@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using MVC_5_BlogTamplate.Dto;
@@ -27,11 +23,9 @@ namespace MVC_5_BlogTamplate.Controllers.api
 
             if (_applicationDbContext.Attendances
                 .Any(a =>
-                    a.AttendeeId ==currentUser  && a.GigId == dto.GigId))
-            {
+                    a.AttendeeId == currentUser && a.GigId == dto.GigId))
                 return BadRequest();
-            }
-            var attendence = new Attendance()
+            var attendence = new Attendance
             {
                 GigId = dto.GigId,
                 AttendeeId = currentUser

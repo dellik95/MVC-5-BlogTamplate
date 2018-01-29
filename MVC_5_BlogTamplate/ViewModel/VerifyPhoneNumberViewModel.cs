@@ -4,9 +4,7 @@ namespace MVC_5_BlogTamplate.ViewModel
 {
     public class VerifyPhoneNumberViewModel
     {
-        [Required]
-        [Display(Name = "Код")]
-        public string Code { get; set; }
+        [Required] [Display(Name = "Код")] public string Code { get; set; }
 
         [Required]
         [Phone]

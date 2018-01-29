@@ -1,5 +1,5 @@
 ﻿$(".js-toogle-follow").click(function(e) {
-    let btn = $(e.target);
+    const btn = $(e.target);
 
     $.post("/api/following", { followeeId: btn.attr("data-user-id") }).done(function() {
         btn.text("Follow");

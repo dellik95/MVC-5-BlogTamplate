@@ -10,18 +10,16 @@ namespace MVC_5_BlogTamplate.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Required]
-        [StringLength(100)]
-        public string Name { get; set; }
-
-        public ICollection<Following> Followers { get; set; }
-        public ICollection<Following> Followees { get; set; }
-
         public ApplicationUser()
         {
             Followers = new Collection<Following>();
             Followees = new Collection<Following>();
         }
+
+        [Required] [StringLength(100)] public string Name { get; set; }
+
+        public ICollection<Following> Followers { get; set; }
+        public ICollection<Following> Followees { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

@@ -9,7 +9,6 @@ namespace MVC_5_BlogTamplate.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly ApplicationDbContext _applicationDbContext;
 
         public HomeController()
@@ -25,16 +24,15 @@ namespace MVC_5_BlogTamplate.Controllers
                 .Where(g => g.DateTime < DateTime.Now).ToList();
 
 
-            var viewModel = new GigsViewModel()
+            var viewModel = new GigsViewModel
             {
                 Gigs = upcomingGigs,
                 ShowAction = User.Identity.IsAuthenticated,
                 Heading = "All Gigs"
-
             };
 
 
-            return View("Gigs",viewModel);
+            return View("Gigs", viewModel);
         }
 
         public ActionResult About()

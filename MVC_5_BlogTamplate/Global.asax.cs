@@ -3,6 +3,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using MVC_5_BlogTamplate.App_Start;
 
 namespace MVC_5_BlogTamplate
 {
@@ -10,6 +12,7 @@ namespace MVC_5_BlogTamplate
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c => c.AddProfile(new MapperProfile()));
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

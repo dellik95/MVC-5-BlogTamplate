@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
@@ -29,6 +30,33 @@ namespace MVC_5_BlogTamplate.Controllers
         }
 
 
+        
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(GigsFormViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _applicationDbContext.Genres.ToList();
+                return View("GigForm", viewModel);
+            }
+
+            var gig = new Gig
+            {
+                ArtistId = User.Identity.GetUserId(),
+                DateTime = viewModel.GetDateTime(),
+                GenreId = viewModel.Genre,
+                Vanue = viewModel.Vanue
+            };
+
+            _applicationDbContext.Gigs.Add(gig);
+                     _applicationDbContext.SaveChanges();
+
+            return RedirectToAction("Mine", "Gigs");
+        }
+
         [Authorize]
         public ActionResult Edit(int id)
         {
@@ -52,32 +80,6 @@ namespace MVC_5_BlogTamplate.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(GigsFormViewModel viewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                viewModel.Genres = _applicationDbContext.Genres.ToList();
-                return View("GigForm", viewModel);
-            }
-
-            var gig = new Gig
-            {
-                ArtistId = User.Identity.GetUserId(),
-                DateTime = viewModel.GetDateTime(),
-                GenreId = viewModel.Genre,
-                Vanue = viewModel.Vanue
-            };
-
-            _applicationDbContext.Gigs.Add(gig);
-            _applicationDbContext.SaveChanges();
-
-            return RedirectToAction("Mine", "Gigs");
-        }
-
-
-        [Authorize]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(GigsFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -88,13 +90,11 @@ namespace MVC_5_BlogTamplate.Controllers
 
             var currentUserId = User.Identity.GetUserId();
 
-            var gig = _applicationDbContext.Gigs.Single(g => g.Id == viewModel.Id && g.ArtistId == currentUserId);
+            var gig = _applicationDbContext.Gigs
+                .Include(g=>g.Attendences.Select(a=>a.Attendee))
+                .Single(g => g.Id == viewModel.Id && g.ArtistId == currentUserId);
 
-
-            gig.Vanue = viewModel.Vanue;
-            gig.DateTime = viewModel.GetDateTime();
-            gig.GenreId = viewModel.Genre;
-
+            gig.Notify(viewModel.GetDateTime(), viewModel.Vanue, viewModel.Genre);
             _applicationDbContext.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");

@@ -3,6 +3,7 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\MVC_5_
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\MVC_5_BlogTamplate.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\MVC_5_BlogTamplate.pdb
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\Antlr3.Runtime.dll
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\AutoMapper.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\EntityFramework.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\EntityFramework.SqlServer.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\Microsoft.AI.Agent.Intercept.dll
@@ -39,6 +40,7 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\System
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\System.Web.WebPages.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\System.Web.WebPages.Razor.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\WebGrease.dll
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\AutoMapper.xml
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\System.Web.Helpers.xml
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\System.Web.Mvc.xml
@@ -102,9 +104,10 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddNamePropForUser1.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.CreateAttendenceTable.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddFollowingsTable.resources
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddIsCanceledGig.resources
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddNotification.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csproj.GenerateResource.Cache
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csproj.CoreCompileInputs.cache
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.pdb
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csprojResolveAssemblyReference.cache
-C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddIsCanceledGig.resources

@@ -38,6 +38,62 @@
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/underscore")
 @RenderSection("scripts", false)
+@*<script type="text/x-template" id="notifications-template">
+    <ul>
+        <%
+        _.each(notifications, function(notification){
+        if (notification.notificationType == 1) { %>
+        <li><%= notification.gig.artist.name %> has canceled the gig at <%= notification.gig.vanue %> at <%= notification.gig.dateTime %>.</li>
+        <% }
+
+        else if (notification.notificationType == 2) {
+        var changes = [],
+        originalValues = [],
+        newValues = [];
+
+        if (notification.originalVenue != notification.gig.vanue) {
+        changes.push('venue');
+        originalValues.push(notification.originalVenue);
+        newValues.push(notification.gig.vanue);
+        }
+
+        if (notification.originalDateTime != notification.gig.dateTime) {
+        changes.push('date/time');
+        originalValues.push(notification.originalDateTime);
+        newValues.push(notification.gig.dateTime);
+        }
+
+        %>
+        <li><%= notification.gig.artist.name %> has changed the <%= changes.join(' and ') %> of the gig from <%= originalValues.join('/') %> to <%= newValues.join('/') %></li>
+        <%
+        }
+        })
+        %>
+    </ul>
+    </script>
+<script>
+    $(document).ready(function() {
+        $.getJSON("/api/notifications",
+            function(notification) {
+
+                if (notification.length === 0) return;
+
+                $(".js-notification-count").text(notification.length).removeClass("hide");
+
+                $(".notification").popover({
+                    html: true,
+                    title: "notification",
+                    content: function() {
+                        let compile = _.template($("#notifications-template").html());
+
+                        return compile({ notifications: notification });
+                    },
+                    placement: "bottom"
+                });
+            });
+    });
+</script>*@
 </body>
 </html>

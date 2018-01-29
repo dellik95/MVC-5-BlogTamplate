@@ -14,6 +14,8 @@ namespace MVC_5_BlogTamplate.Models
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Following> Followings { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
 
 
         public static ApplicationDbContext Create()
@@ -25,7 +27,7 @@ namespace MVC_5_BlogTamplate.Models
         {
             modelBuilder.Entity<Attendance>()
                 .HasRequired(x => x.Gig)
-                .WithMany()
+                .WithMany(g=>g.Attendences)
                 .WillCascadeOnDelete(false);
 
 
@@ -38,6 +40,11 @@ namespace MVC_5_BlogTamplate.Models
             modelBuilder.Entity<ApplicationUser>()
                 .HasMany(u => u.Followees)
                 .WithRequired(u => u.Follower)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserNotification>()
+                .HasRequired(x=>x.User)
+                .WithMany(g=>g.UserNotifications)
                 .WillCascadeOnDelete(false);
 
 

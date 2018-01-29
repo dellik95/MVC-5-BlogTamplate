@@ -21,7 +21,7 @@ namespace MVC_5_BlogTamplate.Controllers
             var upcomingGigs = _applicationDbContext.Gigs
                 .Include(x => x.Artist)
                 .Include(g => g.Genre)
-                .Where(g => g.DateTime < DateTime.Now).ToList();
+                .Where(g => g.DateTime < DateTime.Now && !g.IsCanceled).ToList();
 
 
             var viewModel = new GigsViewModel

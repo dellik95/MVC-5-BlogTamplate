@@ -202,6 +202,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\api\AttendencesController.cs" />
     <Compile Include="Controllers\api\FollowingController.cs" />
+    <Compile Include="Controllers\api\GigsController.cs" />
+    <Compile Include="Controllers\FolloweesController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -246,6 +248,10 @@
     <Compile Include="Migrations\201801241318204_AddFollowingsTable.Designer.cs">
       <DependentUpon>201801241318204_AddFollowingsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801291123592_AddIsCanceledGig.cs" />
+    <Compile Include="Migrations\201801291123592_AddIsCanceledGig.Designer.cs">
+      <DependentUpon>201801291123592_AddIsCanceledGig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\Following.cs" />
@@ -287,6 +293,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -344,7 +352,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Gigs\GigForm.cshtml" />
-    <Content Include="Views\Gigs\Following.cshtml" />
+    <Content Include="Views\Followees\Following.cshtml" />
     <Content Include="Views\Gigs\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup />
@@ -379,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801241318204_AddFollowingsTable.resx">
       <DependentUpon>201801241318204_AddFollowingsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801291123592_AddIsCanceledGig.resx">
+      <DependentUpon>201801291123592_AddIsCanceledGig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

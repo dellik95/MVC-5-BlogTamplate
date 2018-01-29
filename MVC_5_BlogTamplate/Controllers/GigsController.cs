@@ -121,18 +121,6 @@ namespace MVC_5_BlogTamplate.Controllers
             return View("Gigs", gigsViewModel);
         }
 
-        [Authorize]
-        public ActionResult Following()
-        {
-            var currentUserId = User.Identity.GetUserId();
-
-            var followQuery = _applicationDbContext.Followings
-                .Where(f => f.FollowerId == currentUserId)
-                .Include(f=>f.Followee)
-                .ToList();
-
-            return View(followQuery);
-        }
 
         [Authorize]
         public ActionResult Mine()
@@ -140,7 +128,7 @@ namespace MVC_5_BlogTamplate.Controllers
             var currentUserId = User.Identity.GetUserId();
 
             var mineGigs = _applicationDbContext.Gigs
-                .Where(g => g.ArtistId == currentUserId)
+                .Where(g => g.ArtistId == currentUserId && !g.IsCanceled)
                 .Include(i => i.Genre)
                 .ToList();
 

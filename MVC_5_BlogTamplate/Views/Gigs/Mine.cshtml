@@ -28,7 +28,9 @@
                     @gig.Genre.Name
                 </span>
                 <div class="actions">
-                    <a href="@Url.Action("Edit", "Gigs", new {id = gig.Id})">Edit</a>
+                    <a href="@Url.Action("Edit", "Gigs", new {id = gig.Id})">Edit</a>|
+                    <a href="#" class="js-cancel-gig" data-gig-id="@gig.Id">Edit</a>
+
                 </div>
             </div>
         </li>
@@ -36,4 +38,44 @@
 </ul>
 
 @section scripts
-{}
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-cancel-gig").click(function (e) {
+                const link = $(e.target);
+                bootbox.dialog({
+                    title: 'Confirm',
+                    message: "<p>Are you Sure you waant delete a Gig?.</p>",
+                    buttons: {
+                        no: {
+                            label: "No",
+                            className: 'btn-default',
+                            callback: function () {
+                                bootbox.hideAll();
+                            }
+                        },
+                        yes: {
+                            label: "Yes",
+                            className: 'btn-warning',
+                            callback: function () {
+                                $.ajax({
+                                    url: `/api/gigs/${link.attr("data-gig-id")}`,
+                                    method: "DELETE"
+                                })
+                                    .done(function () {
+                                        link.parent("li").fadeOut("slow",function () {
+                                            this.remove();
+                                        });
+                                    })
+                                    .fail(function () {
+
+                                    });
+                            }
+                        }
+
+                    }
+                });
+            });
+        });
+
+    </script>}

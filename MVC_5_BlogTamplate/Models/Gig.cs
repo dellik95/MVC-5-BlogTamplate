@@ -18,7 +18,7 @@ namespace MVC_5_BlogTamplate.Models
 
         public DateTime DateTime { get; set; }
 
-        [Required] [StringLength(255)] public string Vanue { get; set; }
+        [Required] [StringLength(255)] public string Venue { get; set; }
 
         public Genre Genre { get; set; }
 
@@ -48,7 +48,7 @@ namespace MVC_5_BlogTamplate.Models
         {
             var notification = Notification.GigUpdated(this, dateTime, viewModelVanue);
 
-            Vanue = viewModelVanue;
+            Venue = viewModelVanue;
             DateTime = dateTime;
             GenreId = viewModelGenre;
 

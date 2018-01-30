@@ -106,8 +106,8 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddFollowingsTable.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddIsCanceledGig.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.AddNotification.resources
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.ChangeVenue.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csproj.GenerateResource.Cache
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csproj.CoreCompileInputs.cache
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.pdb
-C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csprojResolveAssemblyReference.cache

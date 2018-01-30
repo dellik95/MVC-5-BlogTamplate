@@ -10,7 +10,7 @@ namespace MVC_5_BlogTamplate.Migrations
             DropForeignKey("dbo.Gigs", "Genre_Id", "dbo.Genres");
             DropIndex("dbo.Gigs", new[] {"Artist_Id"});
             DropIndex("dbo.Gigs", new[] {"Genre_Id"});
-            AlterColumn("dbo.Gigs", "Vanue", c => c.String(false, 255));
+            AlterColumn("dbo.Gigs", "Venue", c => c.String(false, 255));
             AlterColumn("dbo.Gigs", "Artist_Id", c => c.String(false, 128));
             AlterColumn("dbo.Gigs", "Genre_Id", c => c.Byte(false));
             AlterColumn("dbo.Genres", "Name", c => c.String(false, 255));
@@ -29,7 +29,7 @@ namespace MVC_5_BlogTamplate.Migrations
             AlterColumn("dbo.Genres", "Name", c => c.String());
             AlterColumn("dbo.Gigs", "Genre_Id", c => c.Byte());
             AlterColumn("dbo.Gigs", "Artist_Id", c => c.String(maxLength: 128));
-            AlterColumn("dbo.Gigs", "Vanue", c => c.String());
+            AlterColumn("dbo.Gigs", "Venue", c => c.String());
             CreateIndex("dbo.Gigs", "Genre_Id");
             CreateIndex("dbo.Gigs", "Artist_Id");
             AddForeignKey("dbo.Gigs", "Genre_Id", "dbo.Genres", "Id");

@@ -48,7 +48,7 @@ namespace MVC_5_BlogTamplate.Controllers
                 ArtistId = User.Identity.GetUserId(),
                 DateTime = viewModel.GetDateTime(),
                 GenreId = viewModel.Genre,
-                Vanue = viewModel.Vanue
+                Venue = viewModel.Vanue
             };
 
             _applicationDbContext.Gigs.Add(gig);
@@ -72,7 +72,7 @@ namespace MVC_5_BlogTamplate.Controllers
                 Date = gig.DateTime.ToString("d MMM yyyy"),
                 Time = gig.DateTime.ToString("HH:mm"),
                 Genre =gig.GenreId,
-                Vanue = gig.Vanue
+                Vanue = gig.Venue
             };
 
             return View("GigForm",viewModel);
@@ -141,6 +141,35 @@ namespace MVC_5_BlogTamplate.Controllers
         {
           return  RedirectToAction("Index", "Home", new {query = gigs.SearchTerm});
         }
-        
+
+        public ActionResult Details(int id = 0)
+        {
+
+            if (id == 0)
+                return  HttpNotFound("Gigs unavailiable");
+            var detailsViewModel = new DetailsViewModel()
+            {
+                Gig = _applicationDbContext.Gigs.Include(i=>i.Artist).Single(g => g.Id == id)
+            };
+
+            detailsViewModel.IsAuthonticated = User.Identity.IsAuthenticated;
+            if (detailsViewModel.IsAuthonticated)
+            {
+                var userId = User.Identity.GetUserId();
+
+                detailsViewModel.IsFollow = _applicationDbContext.Followings
+                    .Any(a => a.FollowerId == userId && a.FollowerId == userId);
+
+                detailsViewModel.IsAttenting =
+                    _applicationDbContext.Attendances
+                        .Any(a => a.GigId == id && a.AttendeeId == userId);
+
+
+            }
+
+
+
+            return View(detailsViewModel);
+        }
     }
 }

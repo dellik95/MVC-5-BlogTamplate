@@ -29,7 +29,7 @@ namespace MVC_5_BlogTamplate.Controllers
                     .Where(g =>
                         g.Artist.Name.Contains(query)||
                         g.Genre.Name.Contains(query)||
-                        g.Vanue.Contains(query));
+                        g.Venue.Contains(query));
             }
 
 

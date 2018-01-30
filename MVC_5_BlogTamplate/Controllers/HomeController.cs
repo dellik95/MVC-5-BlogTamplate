@@ -21,7 +21,7 @@ namespace MVC_5_BlogTamplate.Controllers
             var upcomingGigs = _applicationDbContext.Gigs
                 .Include(x => x.Artist)
                 .Include(g => g.Genre)
-                .Where(g => g.DateTime < DateTime.Now && !g.IsCanceled).ToList();
+                .Where(g=>!g.IsCanceled).ToList();
 
 
             var viewModel = new GigsViewModel
@@ -35,18 +35,8 @@ namespace MVC_5_BlogTamplate.Controllers
             return View("Gigs", viewModel);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+       
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }

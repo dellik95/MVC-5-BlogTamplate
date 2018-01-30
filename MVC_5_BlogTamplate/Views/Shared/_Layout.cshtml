@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
@@ -10,90 +10,90 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("MVC Blog", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Gig", "Create", "Gigs")</li>
-            </ul>
-            @Html.Partial("_LoginPartial")
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("MVC Blog", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Gig", "Create", "Gigs")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
     </div>
-</div>
-<div class="container body-content">
-    @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
-    </footer>
-</div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        </footer>
+    </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/underscore")
-@RenderSection("scripts", false)
-@*<script type="text/x-template" id="notifications-template">
-    <ul>
-        <%
-        _.each(notifications, function(notification){
-        if (notification.notificationType == 1) { %>
-        <li><%= notification.gig.artist.name %> has canceled the gig at <%= notification.gig.vanue %> at <%= notification.gig.dateTime %>.</li>
-        <% }
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/underscore")
+    @RenderSection("scripts", false)
+    <script type="text/x-template" id="notifications-template">
+            <ul>
+                <%
+                _.each(notifications, function(notification){
+                if (notification.notificationType == 1) { %>
+                <li><%= notification.gig.artist.name %> has canceled the gig at <%= notification.gig.vanue %> at <%= notification.gig.dateTime %>.</li>
+                <% }
 
-        else if (notification.notificationType == 2) {
-        var changes = [],
-        originalValues = [],
-        newValues = [];
+                else if (notification.notificationType == 2) {
+                var changes = [],
+                originalValues = [],
+                newValues = [];
 
-        if (notification.originalVenue != notification.gig.vanue) {
-        changes.push('venue');
-        originalValues.push(notification.originalVenue);
-        newValues.push(notification.gig.vanue);
-        }
+                if (notification.originalVenue != notification.gig.vanue) {
+                changes.push('venue');
+                originalValues.push(notification.originalVenue);
+                newValues.push(notification.gig.vanue);
+                }
 
-        if (notification.originalDateTime != notification.gig.dateTime) {
-        changes.push('date/time');
-        originalValues.push(notification.originalDateTime);
-        newValues.push(notification.gig.dateTime);
-        }
+                if (notification.originalDateTime != notification.gig.dateTime) {
+                changes.push('date/time');
+                originalValues.push(notification.originalDateTime);
+                newValues.push(notification.gig.dateTime);
+                }
 
-        %>
-        <li><%= notification.gig.artist.name %> has changed the <%= changes.join(' and ') %> of the gig from <%= originalValues.join('/') %> to <%= newValues.join('/') %></li>
-        <%
-        }
-        })
-        %>
-    </ul>
-    </script>
-<script>
-    $(document).ready(function() {
-        $.getJSON("/api/notifications",
-            function(notification) {
+                %>
+                <li><%= notification.gig.artist.name %> has changed the <%= changes.join(' and ') %> of the gig from <%= originalValues.join('/') %> to <%= newValues.join('/') %></li>
+                <%
+                }
+                })
+                %>
+            </ul>
+            </script>
+        <script>
+            $(document).ready(function() {
+                $.getJSON("/api/notifications",
+                    function(notification) {
 
-                if (notification.length === 0) return;
+                        if (notification.length === 0) return;
 
-                $(".js-notification-count").text(notification.length).removeClass("hide");
+                        $(".js-notification-count").text(notification.length).removeClass("hide");
 
-                $(".notification").popover({
-                    html: true,
-                    title: "notification",
-                    content: function() {
-                        let compile = _.template($("#notifications-template").html());
+                        $(".notification").popover({
+                            html: true,
+                            title: "notification",
+                            content: function() {
+                                let compile = _.template($("#notifications-template").html());
 
-                        return compile({ notifications: notification });
-                    },
-                    placement: "bottom"
-                });
+                                return compile({ notifications: notification });
+                            },
+                            placement: "bottom"
+                        });
+                    });
             });
-    });
-</script>*@
+        </script>
 </body>
 </html>

@@ -52,7 +52,8 @@ namespace MVC_5_BlogTamplate.Controllers
             };
 
             _applicationDbContext.Gigs.Add(gig);
-                     _applicationDbContext.SaveChanges();
+            gig.Notify();
+            _applicationDbContext.SaveChanges();
 
             return RedirectToAction("Mine", "Gigs");
         }

@@ -58,5 +58,16 @@ namespace MVC_5_BlogTamplate.Models
             }
         }
 
+        public void Notify()
+        {
+            var notification = Notification.GigCreated(this);
+
+            foreach (var attendence in Attendences.Select(a=>a.Attendee))
+            {
+                attendence.Notify(notification);
+            }
+
+        }
+
     }
 }

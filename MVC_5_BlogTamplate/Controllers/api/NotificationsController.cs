@@ -19,6 +19,7 @@ namespace MVC_5_BlogTamplate.Controllers.api
             _applicationDbContext = new ApplicationDbContext();
         }
 
+        [HttpGet]
         public List<NotificationDto> GetNewNotification()
         {
             var currentUserId = User.Identity.GetUserId();
@@ -31,6 +32,20 @@ namespace MVC_5_BlogTamplate.Controllers.api
 
 
             return notification.Select(Mapper.Map<Notification, NotificationDto>).ToList();
+        }
+
+        [HttpPost]
+        public IHttpActionResult MarkAsRead()
+        {
+            var currentUserId = User.Identity.GetUserId();
+
+            var notification = _applicationDbContext.UserNotifications
+                .Where(un => un.UserId == currentUserId && !un.IsRead).ToList();
+
+            notification.ForEach(n=>n.Read());
+            _applicationDbContext.SaveChanges();
+
+            return Ok();
         }
     }
 }

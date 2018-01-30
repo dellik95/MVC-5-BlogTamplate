@@ -42,7 +42,7 @@
     <script>
         $(document).ready(function () {
             $(".js-cancel-gig").click(function (e) {
-                const link = $(e.target);
+                let link = $(e.target);
                 bootbox.dialog({
                     title: 'Confirm',
                     message: "<p>Are you Sure you waant delete a Gig?.</p>",
@@ -63,12 +63,12 @@
                                     method: "DELETE"
                                 })
                                     .done(function () {
-                                        link.parent("li").fadeOut("slow",function () {
-                                            this.remove();
+                                        link.parents("li").fadeOut(function () {
+                                            $(this).remove();
                                         });
                                     })
                                     .fail(function () {
-
+                                        bootbox.alert("Somthing is Faild");
                                     });
                             }
                         }

@@ -26,5 +26,10 @@ namespace MVC_5_BlogTamplate.Models
         protected UserNotification()
         {
         }
+
+        public void Read()
+        {
+            this.IsRead = true;
+        }
     }
 }

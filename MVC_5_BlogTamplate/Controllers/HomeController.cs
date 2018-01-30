@@ -16,16 +16,27 @@ namespace MVC_5_BlogTamplate.Controllers
             _applicationDbContext = new ApplicationDbContext();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string query = null)
         {
             var upcomingGigs = _applicationDbContext.Gigs
                 .Include(x => x.Artist)
                 .Include(g => g.Genre)
-                .Where(g=>!g.IsCanceled).ToList();
+                .Where(g => !g.IsCanceled);
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                upcomingGigs = upcomingGigs
+                    .Where(g =>
+                        g.Artist.Name.Contains(query)||
+                        g.Genre.Name.Contains(query)||
+                        g.Vanue.Contains(query));
+            }
+
 
 
             var viewModel = new GigsViewModel
             {
+                SearchTerm = query,
                 Gigs = upcomingGigs,
                 ShowAction = User.Identity.IsAuthenticated,
                 Heading = "All Gigs"
@@ -35,8 +46,8 @@ namespace MVC_5_BlogTamplate.Controllers
             return View("Gigs", viewModel);
         }
 
-       
 
-        
+
+
     }
 }

@@ -135,5 +135,12 @@ namespace MVC_5_BlogTamplate.Controllers
 
             return View("Mine",mineGigs);
         }
+
+        [HttpPost]
+        public ActionResult Search(GigsViewModel gigs)
+        {
+          return  RedirectToAction("Index", "Home", new {query = gigs.SearchTerm});
+        }
+        
     }
 }

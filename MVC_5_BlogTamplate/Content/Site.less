@@ -1,0 +1,305 @@
+﻿@color_1: #ff4342;
+@color_2: #fff;
+@color_3: white;
+@color_4: #333;
+@font_family_1: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@background_color_1: #ff4342;
+@background_color_2: #cd2827;
+@background_color_3: rgba(205, 40, 39, 0.55);
+@border_color_1: #ff4342;
+@border_color_2: #2196f3;
+@border_top_color_1: #fff;
+@border_bottom_color_1: #fff;
+
+/* Set padding to keep content from hitting the edges */
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/* Set width on the form input elements since they're 100% wide by default */
+body {
+    padding-bottom: 20px;
+    padding-top: 90px;
+    font-size: 17px;
+    font-family: @font_family_1;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal {
+    dt {
+        white-space: normal;
+    }
+}
+
+input {
+    max-width: 280px;
+}
+
+select {
+    max-width: 280px;
+}
+
+textarea {
+    max-width: 280px;
+}
+
+span.field-validation-error {
+    color: @color_1;
+    font-weight: bold;
+}
+
+input.input-validation-error {
+    border: #ff4342 solid 1px;
+}
+
+.vertical-offset1 {
+    margin-top: 2px;
+}
+
+.vertical-offset2 {
+    margin-top: 5px;
+}
+
+.vertical-offset3 {
+    margin-top: 10px;
+}
+
+.vertical-offset4 {
+    margin-top: 40px;
+}
+
+.vertical-offset5 {
+    margin-top: 80px;
+}
+
+.navbar-inverse {
+    background-color: @background_color_1;
+    border-color: @border_color_1;
+
+    .navbar-nav {
+        > li {
+            > a {
+                color: @color_2;
+            }
+        }
+
+        > .open {
+            > a {
+                background-color: @background_color_2;
+                background-color: @background_color_3;
+
+                &:hover {
+                    background-color: @background_color_2;
+                    background-color: @background_color_3;
+                }
+
+                &:focus {
+                    background-color: @background_color_2;
+                    background-color: @background_color_3;
+                }
+            }
+        }
+
+        > .dropdown {
+            > a {
+                .caret {
+                    border-bottom-color: @border_bottom_color_1;
+                    border-top-color: @border_top_color_1;
+                }
+            }
+        }
+    }
+
+    .navbar-brand {
+        color: @color_2;
+    }
+
+    .notification {
+        position: relative;
+
+        .badge {
+            position: absolute;
+            top: 8px;
+            right: -1px;
+            background: #a80a0a;
+        }
+    }
+}
+
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.popover {
+    box-shadow: none;
+
+    .popover-content {
+        padding: 0;
+    }
+}
+
+h1 {
+    font-family: @font_family_1;
+}
+
+h2 {
+    font-family: @font_family_1;
+}
+
+h3 {
+    font-family: @font_family_1;
+}
+
+h4 {
+    font-family: @font_family_1;
+}
+
+h5 {
+    font-family: @font_family_1;
+}
+
+h6 {
+    font-family: @font_family_1;
+}
+
+.h1 {
+    font-family: @font_family_1;
+}
+
+.h2 {
+    font-family: @font_family_1;
+}
+
+.h3 {
+    font-family: @font_family_1;
+}
+
+.h4 {
+    font-family: @font_family_1;
+}
+
+.h5 {
+    font-family: @font_family_1;
+}
+
+.h6 {
+    font-family: @font_family_1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+    font-size: 17px;
+    height: 44px;
+
+    &:focus {
+        -webkit-box-shadow: none;
+        border-color: @border_color_2;
+        box-shadow: none;
+    }
+}
+
+.btn {
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.gigs {
+    list-style: none;
+
+    > li {
+        margin-bottom: 30px;
+        position: relative;
+
+        .date {
+            background: red;
+            border-radius: 8px;
+            color: @color_3;
+            text-align: center;
+            width: 60px;
+
+            .month {
+                font-size: 17px;
+                font-weight: bold;
+                padding: 2px 6px;
+                text-transform: uppercase;
+            }
+
+            .day {
+                background: #f7f7f7;
+                color: @color_4;
+                font-size: 20px;
+                padding: 6px 12px;
+            }
+        }
+
+        .details {
+            left: 70px;
+            position: absolute;
+            top: 0;
+
+            .artist {
+                display: block;
+                font-weight: bold;
+            }
+
+            .genre {
+                display: block;
+                font-size: 15px;
+            }
+        }
+
+        .actions {
+            font-size: 15px;
+            display: none;
+        }
+
+        &:hover {
+            .actions {
+                display: block;
+            }
+        }
+    }
+}
+
+ul.notifications {
+    list-style: none;
+    padding-left: 0;
+
+    > li {
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.popover-content {
+    .highlight {
+        font-weight: bold;
+    }
+}
+
+#fixWidth {
+    width: 300px;
+}
+
+
+footer {
+    text-align: center;
+}

@@ -1,7 +1,9 @@
 ﻿using Microsoft.Owin;
+using MVC_5_BlogTamplate;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(MVC_5_BlogTamplate.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
+
 namespace MVC_5_BlogTamplate
 {
     public partial class Startup

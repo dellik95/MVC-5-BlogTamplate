@@ -1,30 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using MVC_5_BlogTamplate.Models;
+using MVC_5_BlogTamplate.ViewModel;
 
 namespace MVC_5_BlogTamplate.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly ApplicationDbContext _applicationDbContext;
+
+        public HomeController()
         {
-            return View();
+            _applicationDbContext = new ApplicationDbContext();
         }
 
-        public ActionResult About()
+        public ActionResult Index(string query = null)
         {
-            ViewBag.Message = "Your application description page.";
+            var upcomingGigs = _applicationDbContext.Gigs
+                .Include(x => x.Artist)
+                .Include(g => g.Genre)
+                .Where(g => !g.IsCanceled);
 
-            return View();
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                upcomingGigs = upcomingGigs
+                    .Where(g =>
+                        g.Artist.Name.Contains(query)||
+                        g.Genre.Name.Contains(query)||
+                        g.Venue.Contains(query));
+            }
+
+
+
+            var viewModel = new GigsViewModel
+            {
+                SearchTerm = query,
+                Gigs = upcomingGigs,
+                ShowAction = User.Identity.IsAuthenticated,
+                Heading = "All Gigs"
+            };
+
+
+            return View("Gigs", viewModel);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+
+
     }
 }

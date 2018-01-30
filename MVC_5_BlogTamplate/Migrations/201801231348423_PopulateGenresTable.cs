@@ -1,8 +1,7 @@
+using System.Data.Entity.Migrations;
+
 namespace MVC_5_BlogTamplate.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-
     public partial class PopulateGenresTable : DbMigration
     {
         public override void Up()

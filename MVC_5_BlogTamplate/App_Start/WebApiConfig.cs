@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace MVC_5_BlogTamplate
 {
@@ -10,14 +9,16 @@ namespace MVC_5_BlogTamplate
         public static void Register(HttpConfiguration config)
         {
             // Конфигурация и службы веб-API
-
+            var settings= GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            settings.Formatting = Formatting.Indented;
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                "DefaultApi",
+                "api/{controller}/{id}",
+                new {id = RouteParameter.Optional}
             );
         }
     }

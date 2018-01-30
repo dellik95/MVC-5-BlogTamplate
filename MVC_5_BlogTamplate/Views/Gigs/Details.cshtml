@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@model MVC_5_BlogTamplate.ViewModel.DetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Gig Details</h3>
+<div class="details">
+    <div>
+        <h1>
+            @Model.Gig.Artist.Name
+        @if (Model.IsAuthonticated)
+        {
+            if (Model.IsFollow)
+            {
+                <button class="btn btn-info">Following</button>
+            }
+            else
+            {
+                <button class="btn btn-default">Follow</button>
+
+            }
+        }
+    </h1>
+
+</div>
+<p>Performing at @Model.Gig.Venue on @Model.Gig.DateTime.ToString("d MMM") at @Model.Gig.DateTime.ToString("HH:mm") </p>
+@if (Model.IsFollow && Model.IsAuthonticated)
+{
+    <p><span>You are going in this event</span></p>
+}
+</div>

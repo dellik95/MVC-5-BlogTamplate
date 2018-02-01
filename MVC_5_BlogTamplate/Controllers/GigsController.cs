@@ -166,9 +166,6 @@ namespace MVC_5_BlogTamplate.Controllers
 
 
             }
-
-
-
             return View(detailsViewModel);
         }
     }

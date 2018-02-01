@@ -95,6 +95,7 @@ C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\ru\Mic
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.csprojResolveAssemblyReference.cache
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.initialModel.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.CreateGigTable.resources
 C:\Users\delli\Documents\GitHub\MVC-5-BlogTamplate\MVC_5_BlogTamplate\obj\Debug\MVC_5_BlogTamplate.Migrations.OverrideConventionForGigsAndGenres.resources

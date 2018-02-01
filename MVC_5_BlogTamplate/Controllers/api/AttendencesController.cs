@@ -36,5 +36,25 @@ namespace MVC_5_BlogTamplate.Controllers.api
 
             return Ok();
         }
+
+        [HttpDelete]
+
+        public IHttpActionResult CancelAttend(int id)
+        {
+            var currentUserId = User.Identity.GetUserId();
+
+            var attendence =
+                _applicationDbContext.Attendances.
+                    SingleOrDefault(a => a.GigId == id && a.AttendeeId == currentUserId);
+
+            if (attendence != null)
+            {
+                _applicationDbContext.Attendances.Remove(attendence);
+                _applicationDbContext.SaveChanges();
+                return Ok();
+            }
+
+            return BadRequest();
+        }
     }
 }

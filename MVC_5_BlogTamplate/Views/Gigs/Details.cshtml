@@ -10,24 +10,28 @@
     <div>
         <h1>
             @Model.Gig.Artist.Name
-        @if (Model.IsAuthonticated)
-        {
-            if (Model.IsFollow)
+            @if (Model.IsAuthonticated)
             {
-                <button class="btn btn-info">Following</button>
-            }
-            else
-            {
-                <button class="btn btn-default">Follow</button>
+                if (Model.IsFollow)
+                {
+                    <button class="btn btn-info js-toogle-follow" data-user-id="@Model.Gig.ArtistId">UnFollow</button>
+                }
+                else
+                {
+                    <button class="btn btn-default js-toogle-follow" data-user-id="@Model.Gig.ArtistId">Following?</button>
 
+                }
             }
-        }
-    </h1>
+        </h1>
 
+    </div>
+    <p>Performing at @Model.Gig.Venue on @Model.Gig.DateTime.ToString("d MMM") at @Model.Gig.DateTime.ToString("HH:mm") </p>
+    @if (Model.IsAttenting && Model.IsAuthonticated)
+    {
+        <p><span>You are going in this event</span></p>
+    }
 </div>
-<p>Performing at @Model.Gig.Venue on @Model.Gig.DateTime.ToString("d MMM") at @Model.Gig.DateTime.ToString("HH:mm") </p>
-@if (Model.IsFollow && Model.IsAuthonticated)
+@section scripts
 {
-    <p><span>You are going in this event</span></p>
+    @Scripts.Render("~/bundles/homeindex")
 }
-</div>

@@ -5,16 +5,16 @@
 
 <h1>@Model.Heading</h1>
 
-@using (Html.BeginForm("Search","Gigs"))
+@using (Html.BeginForm("Search", "Gigs"))
 {
     <div class="form-group">
         <div id="fixWidth" class="input-group">
-             @Html.TextBoxFor(m => m.SearchTerm, new {@class = "form-control", placeholder = "Artist, date, Genre",Type="search"})
+            @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control", placeholder = "Artist, date, Genre", Type = "search" })
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-search"></i>
             </span>
-        </div> 
         </div>
+    </div>
 }
 <ul class="gigs vertical-offset4">
     @foreach (var gig in Model.Gigs)
@@ -31,22 +31,18 @@
             <div class="details">
                 <span class="artist">
 
-                    @Html.ActionLink(gig.Artist.Name, "Details", "Gigs", new { id = gig.Id },null)
+                    @Html.ActionLink(gig.Artist.Name, "Details", "Gigs", new { id = gig.Id }, null)
 
                     @if (gig.IsCanceled)
                     {
                         <span class="label label-warning">Canceled</span>
                     }
-                    @if (Model.ShowAction)
-                    {
-                        <button class="btn btn-link btn-sm  js-toogle-follow" data-user-id="@gig.ArtistId">Following?</button>
-                    }
                 </span>
                 <span class="genre">
                     @gig.Genre.Name
-                    @if (Model.ShowAction&& !gig.IsCanceled)
+                    @if (Model.ShowAction && !gig.IsCanceled)
                     {
-                        <button class="btn btn-default btn-sm pull-right js-toggle-attendence" data-gigId="@gig.Id">Going?</button>
+                        <button class="btn @(Model.Attendences.Contains(gig.Id)?"btn-info":"btn-default")  btn-sm pull-right js-toggle-attendence" data-gigId="@gig.Id">Going</button>
                     }
                 </span>
 

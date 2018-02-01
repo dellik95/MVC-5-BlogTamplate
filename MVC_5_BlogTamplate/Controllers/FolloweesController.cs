@@ -1,11 +1,13 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using System.Web.Http;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using MVC_5_BlogTamplate.Models;
 
 namespace MVC_5_BlogTamplate.Controllers
 {
+    [System.Web.Mvc.Authorize]
     public class FolloweesController : Controller
     {
         private readonly ApplicationDbContext _applicationDbContext;
@@ -15,7 +17,7 @@ namespace MVC_5_BlogTamplate.Controllers
             _applicationDbContext = new ApplicationDbContext();
         }
 
-        [Authorize]
+        
         public ActionResult Following()
         {
             var currentUserId = User.Identity.GetUserId();
@@ -27,5 +29,7 @@ namespace MVC_5_BlogTamplate.Controllers
 
             return View(followQuery);
         }
+
+        
     }
 }

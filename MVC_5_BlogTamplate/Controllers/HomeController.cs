@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MVC_5_BlogTamplate.Models;
 using MVC_5_BlogTamplate.ViewModel;
 
@@ -32,14 +33,18 @@ namespace MVC_5_BlogTamplate.Controllers
                         g.Venue.Contains(query));
             }
 
+            var currentUserId = User.Identity.GetUserId();
 
+            var attendence = _applicationDbContext.Attendances.Where(a => a.AttendeeId == currentUserId)
+                .ToLookup(i => i.GigId);
 
             var viewModel = new GigsViewModel
             {
                 SearchTerm = query,
                 Gigs = upcomingGigs,
                 ShowAction = User.Identity.IsAuthenticated,
-                Heading = "All Gigs"
+                Heading = "All Gigs",
+                Attendences = attendence
             };
 
 
